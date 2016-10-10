@@ -1,0 +1,25 @@
+{
+  "name": "issue-babel-plugin-istanbul-fn-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:node": "node test.js",
+    "test:babel-node": "babel-node --plugins istanbul test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kentcdodds/issue-babel-plugin-istanbul-fn-name.git"
+  },
+  "keywords": [],
+  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kentcdodds/issue-babel-plugin-istanbul-fn-name/issues"
+  },
+  "homepage": "https://github.com/kentcdodds/issue-babel-plugin-istanbul-fn-name#readme",
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-plugin-istanbul": "^2.0.1"
+  }
+}
