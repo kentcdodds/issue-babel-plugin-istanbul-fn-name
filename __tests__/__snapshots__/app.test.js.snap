@@ -1,0 +1,9 @@
+exports[`app should render 1`] = `
+<div>
+  <Header />
+  <main>
+    I am content
+  </main>
+  <Footer />
+</div>
+`;

@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test:node": "node test.js",
-    "test:babel-node": "babel-node --plugins istanbul test.js"
+    "test:babel-node": "BABEL_DISABLE_CACHE=1 babel-node --plugins istanbul test.js",
+    "test:fork:babel-node": "BABEL_DISABLE_CACHE=1 babel-node --plugins @wyze/babel-plugin-istanbul test.js",
+    "test:snapshot": "jest __tests__/app.test.js",
+    "test:snapshot:coverage": "NODE_ENV=test npm run test:snapshot -- --coverage --no-cache",
+    "test:fork:snapshot:coverage": "NODE_ENV=test-fork npm run test:snapshot -- --coverage --no-cache"
   },
   "repository": {
     "type": "git",
@@ -19,7 +23,38 @@
   },
   "homepage": "https://github.com/kentcdodds/issue-babel-plugin-istanbul-fn-name#readme",
   "devDependencies": {
+    "@wyze/babel-plugin-istanbul": "^3.0.2",
     "babel-cli": "^6.16.0",
-    "babel-plugin-istanbul": "^2.0.1"
+    "babel-jest": "^18.0.0",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-preset-react": "^6.16.0",
+    "enzyme": "^2.6.0",
+    "enzyme-to-json": "^1.4.5",
+    "jest": "^18.0.0",
+    "react-addons-test-utils": "^15.4.1"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ],
+        "presets": [
+          "react"
+        ]
+      },
+      "test-fork": {
+        "plugins": [
+          "@wyze/babel-plugin-istanbul"
+        ],
+        "presets": [
+          "react"
+        ]
+      }
+    }
   }
 }
